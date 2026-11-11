@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Portal | SoE Risers</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="app-shell">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    S
+                </div>
+
+                <div>
+
+                    <strong>
+                        SoE Risers
+                    </strong>
+
+                    <span>
+                        Student Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <button
+                    class="nav-item active"
+                    data-section="overview"
+                    type="button"
+                >
+                    🏠
+                    <span>Overview</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="attendance"
+                    type="button"
+                >
+                    📊
+                    <span>Attendance</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="results"
+                    type="button"
+                >
+                    📝
+                    <span>Results</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="fees"
+                    type="button"
+                >
+                    💳
+                    <span>Fees</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="notices"
+                    type="button"
+                >
+                    📢
+                    <span>Notices</span>
+                </button>
+
+            </nav>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="main-content">
+
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <div class="eyebrow">
+                        STUDENT PORTAL
+                    </div>
+
+                    <h1 id="welcomeText">
+                        Welcome
+                    </h1>
+
+                </div>
+
+
+                <div class="profile-card">
+
+                    <div
+                        id="profileInitial"
+                        class="profile-avatar"
+                    >
+                        S
+                    </div>
+
+                    <div>
+
+                        <strong id="profileName">
+                            Student
+                        </strong>
+
+                        <span id="profileId">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================
+                 OVERVIEW
+            ================================== -->
+
+            <section
+                id="overviewSection"
+                class="page-section active"
+            >
+
+                <div class="page-heading">
+
+                    <span>
+                        MY ACADEMIC SPACE
+                    </span>
+
+                    <h2>
+                        Student Dashboard
+                    </h2>
+
+                    <p>
+                        Your personal school information,
+                        attendance, results and notices.
+                    </p>
+
+                </div>
+
+
+                <div class="student-profile">
+
+                    <div>
+
+                        <span>
+                            Student Name
+                        </span>
+
+                        <strong id="studentName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Student ID
+                        </span>
+
+                        <strong id="studentIdDisplay">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Class
+                        </span>
+
+                        <strong id="studentClass">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Roll No.
+                        </span>
+
+                        <strong id="studentRollNo">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Section
+                        </span>
+
+                        <strong id="studentSection">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Account
+                        </span>
+
+                        <strong
+                            id="studentStatus"
+                            class="status active"
+                        >
+                            Active
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <span>
+                            Attendance
+                        </span>
+
+                        <strong id="attendancePercentage">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Results
+                        </span>
+
+                        <strong id="resultCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Fee Records
+                        </span>
+
+                        <strong id="feeCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Notices
+                        </span>
+
+                        <strong id="noticeCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Recent Results
+                            </h3>
+
+                            <button
+                                class="text-button"
+                                data-section-target="results"
+                                type="button"
+                            >
+                                View all →
+                            </button>
+
+                        </div>
+
+                        <div id="recentResults">
+                            <p class="empty-state">
+                                No results available yet.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Latest Notices
+                            </h3>
+
+                            <button
+                                class="text-button"
+                                data-section-target="notices"
+                                type="button"
+                            >
+                                View all →
+                            </button>
+
+                        </div>
+
+                        <div id="recentNotices">
+                            <p class="empty-state">
+                                No notices available.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ATTENDANCE
+            ================================== -->
+
+            <section
+                id="attendanceSection"
+                class="page-section"
+            >
+
+                <div class="page-heading">
+
+                    <span>
+                        ACADEMIC RECORD
+                    </span>
+
+                    <h2>
+                        Attendance
+                    </h2>
+
+                    <p>
+                        Your attendance records.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="attendanceContainer"
+                    class="record-list"
+                >
+
+                    <p class="empty-state">
+                        Loading attendance...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 RESULTS
+            ================================== -->
+
+            <section
+                id="resultsSection"
+                class="page-section"
+            >
+
+                <div class="page-heading">
+
+                    <span>
+                        ACADEMIC RECORD
+                    </span>
+
+                    <h2>
+                        Results
+                    </h2>
+
+                    <p>
+                        Your examination and academic results.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="resultsContainer"
+                    class="record-list"
+                >
+
+                    <p class="empty-state">
+                        Loading results...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 FEES
+            ================================== -->
+
+            <section
+                id="feesSection"
+                class="page-section"
+            >
+
+                <div class="page-heading">
+
+                    <span>
+                        SCHOOL SERVICES
+                    </span>
+
+                    <h2>
+                        Fees
+                    </h2>
+
+                    <p>
+                        Your fee records and payment information.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="feesContainer"
+                    class="record-list"
+                >
+
+                    <p class="empty-state">
+                        Loading fee records...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 NOTICES
+            ================================== -->
+
+            <section
+                id="noticesSection"
+                class="page-section"
+            >
+
+                <div class="page-heading">
+
+                    <span>
+                        SCHOOL INFORMATION
+                    </span>
+
+                    <h2>
+                        Notices
+                    </h2>
+
+                    <p>
+                        Important announcements from school.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="noticesContainer"
+                    class="record-list"
+                >
+
+                    <p class="empty-state">
+                        Loading notices...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <div
+        id="loadingScreen"
+        class="loading-screen"
+    >
+
+        <div class="loader"></div>
+
+        <p>
+            Securing your student session...
+        </p>
+
+    </div>
+
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <script
+        type="module"
+        src="./js/dashboard.js"
+    ></script>
+
+</body>
+
+</html>

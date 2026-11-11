@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>School Portal | School of Eminence</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TOP BAR
+    ========================================== -->
+
+    <header class="topbar">
+
+        <a
+            href="./index.html"
+            class="brand"
+        >
+
+            <div class="brand-logo">
+                SOE
+            </div>
+
+            <div>
+
+                <strong>
+                    School of Eminence
+                </strong>
+
+                <span>
+                    Student & Faculty Portal
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+        >
+            ◐
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN AUTH AREA
+    ========================================== -->
+
+    <main class="auth-wrapper">
+
+
+        <section class="auth-card">
+
+
+            <!-- =================================
+                 LEFT PANEL
+            ================================== -->
+
+            <div class="auth-info">
+
+                <div class="info-content">
+
+                    <div class="eyebrow">
+                        SECURE SCHOOL PORTAL
+                    </div>
+
+
+                    <h1>
+                        Your school.
+                        <span>One portal.</span>
+                    </h1>
+
+
+                    <p>
+
+                        Access your academic information,
+                        attendance, results, notices and
+                        school services through one secure
+                        platform.
+
+                    </p>
+
+
+                    <div class="security-points">
+
+                        <div>
+                            <span>✓</span>
+                            Secure Firebase authentication
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Role-based access
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Protected student records
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 RIGHT PANEL
+            ================================== -->
+
+            <div class="auth-panel">
+
+
+                <!-- ==============================
+                     ROLE SELECTION
+                =============================== -->
+
+                <div
+                    id="roleSelection"
+                    class="auth-view active"
+                >
+
+                    <div class="auth-heading">
+
+                        <div class="small-label">
+                            WELCOME
+                        </div>
+
+                        <h2>
+                            Choose your role
+                        </h2>
+
+                        <p>
+                            Select how you are accessing
+                            the school portal.
+                        </p>
+
+                    </div>
+
+
+                    <div class="role-grid">
+
+
+                        <button
+                            class="role-card"
+                            data-role="student"
+                            type="button"
+                        >
+
+                            <div class="role-icon">
+                                🎓
+                            </div>
+
+                            <div class="role-title">
+                                Student
+                            </div>
+
+                            <div class="role-description">
+                                Access your personal
+                                academic dashboard.
+                            </div>
+
+                            <span class="role-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="role-card"
+                            data-role="teacher"
+                            type="button"
+                        >
+
+                            <div class="role-icon">
+                                👨‍🏫
+                            </div>
+
+                            <div class="role-title">
+                                Teacher
+                            </div>
+
+                            <div class="role-description">
+                                Manage your assigned
+                                classes and students.
+                            </div>
+
+                            <span class="role-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="role-card"
+                            data-role="admin"
+                            type="button"
+                        >
+
+                            <div class="role-icon">
+                                🛡️
+                            </div>
+
+                            <div class="role-title">
+                                Administrator
+                            </div>
+
+                            <div class="role-description">
+                                Manage the school
+                                management system.
+                            </div>
+
+                            <span class="role-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <a
+                        href="./index.html"
+                        class="back-link"
+                    >
+                        ← Back to school website
+                    </a>
+
+                </div>
+
+
+
+                <!-- ==============================
+                     STUDENT LOGIN
+                =============================== -->
+
+                <div
+                    id="studentView"
+                    class="auth-view"
+                >
+
+                    <button
+                        class="back-button"
+                        data-back
+                        type="button"
+                    >
+                        ← Change role
+                    </button>
+
+
+                    <div class="auth-heading">
+
+                        <div class="role-badge student-badge">
+                            🎓 STUDENT
+                        </div>
+
+                        <h2>
+                            Student Portal
+                        </h2>
+
+                        <p>
+                            Enter the Student ID assigned
+                            by your school.
+                        </p>
+
+                    </div>
+
+
+                    <form id="studentForm">
+
+
+                        <div class="field">
+
+                            <label for="studentId">
+                                Student ID
+                            </label>
+
+                            <input
+                                id="studentId"
+                                type="text"
+                                placeholder="STU-2026-0001"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Continue with
+                            </label>
+
+                            <button
+                                type="button"
+                                id="studentGoogle"
+                                class="google-button"
+                            >
+
+                                <span class="google-icon">
+                                    G
+                                </span>
+
+                                Continue with Google
+
+                            </button>
+
+                        </div>
+
+
+                        <p class="security-note">
+
+                            Your Student ID is linked to
+                            your authenticated Firebase
+                            account. It cannot be used to
+                            access another student's account.
+
+                        </p>
+
+
+                        <div
+                            id="studentMessage"
+                            class="message"
+                        ></div>
+
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- ==============================
+                     TEACHER LOGIN
+                =============================== -->
+
+                <div
+                    id="teacherView"
+                    class="auth-view"
+                >
+
+                    <button
+                        class="back-button"
+                        data-back
+                        type="button"
+                    >
+                        ← Change role
+                    </button>
+
+
+                    <div class="auth-heading">
+
+                        <div class="role-badge teacher-badge">
+                            👨‍🏫 TEACHER
+                        </div>
+
+                        <h2>
+                            Teacher Portal
+                        </h2>
+
+                        <p>
+                            Enter the Teacher ID assigned
+                            by the Principal/Admin.
+                        </p>
+
+                    </div>
+
+
+                    <form id="teacherForm">
+
+
+                        <div class="field">
+
+                            <label for="teacherId">
+                                Teacher ID
+                            </label>
+
+                            <input
+                                id="teacherId"
+                                type="text"
+                                placeholder="TCH-2026-001"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="teacherEmail">
+                                Email
+                            </label>
+
+                            <input
+                                id="teacherEmail"
+                                type="email"
+                                placeholder="teacher@school.edu"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="teacherPassword">
+                                Password
+                            </label>
+
+                            <input
+                                id="teacherPassword"
+                                type="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+                                Sign in securely →
+                            </button>
+
+                        </div>
+
+                        <p class="security-note">
+
+                            Your Teacher ID is linked to
+                            your authenticated school account
+                            and assigned permissions.
+
+                        </p>
+
+
+                        <div
+                            id="teacherMessage"
+                            class="message"
+                        ></div>
+
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- ==============================
+                     ADMIN LOGIN
+                =============================== -->
+
+                <div
+                    id="adminView"
+                    class="auth-view"
+                >
+
+                    <button
+                        class="back-button"
+                        data-back
+                        type="button"
+                    >
+                        ← Change role
+                    </button>
+
+
+                    <div class="auth-heading">
+
+                        <div class="role-badge admin-badge">
+                            🛡️ ADMINISTRATOR
+                        </div>
+
+                        <h2>
+                            Administrator Portal
+                        </h2>
+
+                        <p>
+                            Authorized administrators only.
+                        </p>
+
+                    </div>
+
+
+                    <form id="adminForm">
+
+
+                        <div class="field">
+
+                            <label for="adminEmail">
+                                Administrator Email
+                            </label>
+
+                            <input
+                                id="adminEmail"
+                                type="email"
+                                placeholder="admin@school.edu"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="adminPassword">
+                                Password
+                            </label>
+
+                            <input
+                                id="adminPassword"
+                                type="password"
+                                placeholder="Enter password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="admin-warning">
+
+                            <span>🔐</span>
+
+                            <p>
+                                Administrator accounts are
+                                provisioned by the school.
+                                Public administrator
+                                registration is disabled.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+
+                            Sign in securely →
+
+                        </button>
+
+
+                        <div
+                            id="adminMessage"
+                            class="message"
+                        ></div>
+
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="./js/auth.js"
+    ></script>
+
+
+</body>
+
+</html>

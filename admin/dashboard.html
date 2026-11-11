@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | SoE Risers</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                SOE
+            </div>
+
+            <div>
+                <strong>SoE Risers</strong>
+                <span>Administration</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+                <span>▦</span>
+                Overview
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="teachers"
+            >
+                <span>👨‍🏫</span>
+                Teachers
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="classes"
+            >
+                <span>🏫</span>
+                Classes
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="students"
+            >
+                <span>🎓</span>
+                Students
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="subjects"
+            >
+                <span>📚</span>
+                Subjects
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="attendance"
+            >
+                <span>✓</span>
+                Attendance
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="results"
+            >
+                <span>📊</span>
+                Results
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="fees"
+            >
+                <span>₹</span>
+                Fees
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="notices"
+            >
+                <span>📢</span>
+                Notices
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="homepage"
+            >
+                <span>🌐</span>
+                Homepage
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+            >
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="page-label">
+                    ADMINISTRATION
+                </div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar">
+                    A
+                </div>
+
+                <div>
+
+                    <strong id="adminName">
+                        Administrator
+                    </strong>
+
+                    <span>
+                        School Administration
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             OVERVIEW
+        ====================================== -->
+
+        <section
+            id="overviewSection"
+            class="dashboard-section active"
+        >
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span class="eyebrow">
+                        SCHOOL MANAGEMENT SYSTEM
+                    </span>
+
+                    <h2>
+                        Welcome to the Admin Dashboard
+                    </h2>
+
+                    <p>
+                        Manage teachers, classes, students,
+                        academics and school operations from
+                        one secure platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>Teachers</span>
+
+                    <strong id="teacherCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Classes</span>
+
+                    <strong id="classCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Students</span>
+
+                    <strong id="studentCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Subjects</span>
+
+                    <strong id="subjectCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <div class="action-grid">
+
+                    <button
+                        class="action-card"
+                        data-open="teachers"
+                    >
+                        <span>👨‍🏫</span>
+                        <strong>Add Teacher</strong>
+                        <small>
+                            Create teacher record and ID
+                        </small>
+                    </button>
+
+
+                    <button
+                        class="action-card"
+                        data-open="classes"
+                    >
+                        <span>🏫</span>
+                        <strong>Create Class</strong>
+                        <small>
+                            Add a school class
+                        </small>
+                    </button>
+
+
+                    <button
+                        class="action-card"
+                        data-open="subjects"
+                    >
+                        <span>📚</span>
+                        <strong>Add Subject</strong>
+                        <small>
+                            Create academic subject
+                        </small>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             TEACHERS
+        ====================================== -->
+
+        <section
+            id="teachersSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PEOPLE
+                    </span>
+
+                    <h2>
+                        Teacher Management
+                    </h2>
+
+                    <p>
+                        Create teachers and assign their
+                        classes and subjects.
+                    </p>
+
+                </div>
+
+                <button
+                    id="addTeacherButton"
+                    class="primary-button"
+                >
+                    + Add Teacher
+                </button>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <input
+                        id="teacherSearch"
+                        type="search"
+                        placeholder="Search teachers..."
+                    >
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Teacher ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="teachersTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CLASSES
+        ====================================== -->
+
+        <section
+            id="classesSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACADEMICS
+                    </span>
+
+                    <h2>
+                        Class Management
+                    </h2>
+
+                    <p>
+                        Create classes and assign teachers.
+                    </p>
+
+                </div>
+
+                <button
+                    id="addClassButton"
+                    class="primary-button"
+                >
+                    + Add Class
+                </button>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Class ID</th>
+                                <th>Class</th>
+                                <th>Section</th>
+                                <th>In-Charge</th>
+                                <th>Students</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="classesTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             STUDENTS
+        ====================================== -->
+
+        <section
+            id="studentsSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        STUDENTS
+                    </span>
+
+                    <h2>
+                        Student Management
+                    </h2>
+
+                    <p>
+                        Students will be created by their
+                        assigned teacher or class in-charge.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="empty-state">
+
+                <span>🎓</span>
+
+                <h3>
+                    Teacher-managed student registration
+                </h3>
+
+                <p>
+                    Students will be added by teachers only
+                    to classes assigned to them.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SUBJECTS
+        ====================================== -->
+
+        <section
+            id="subjectsSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACADEMICS
+                    </span>
+
+                    <h2>
+                        Subject Management
+                    </h2>
+
+                    <p>
+                        Manage the subjects available in
+                        the school.
+                    </p>
+
+                </div>
+
+                <button
+                    id="addSubjectButton"
+                    class="primary-button"
+                >
+                    + Add Subject
+                </button>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-header">
+                    <input
+                        id="subjectSearch"
+                        type="search"
+                        placeholder="Search subjects..."
+                    >
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject ID</th>
+                                <th>Subject</th>
+                                <th>Code</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subjectsTableBody"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PLACEHOLDER SECTIONS
+        ====================================== -->
+
+        <section
+            id="attendanceSection"
+            class="dashboard-section"
+        >
+            <div class="empty-state">
+                <span>✓</span>
+                <h3>Attendance Management</h3>
+                <p>
+                    Attendance tools will be connected
+                    after teacher/class permissions.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- RESULTS MANAGEMENT -->
+        <section id="resultsSection" class="dashboard-section">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">ACADEMIC MANAGEMENT</span>
+                    <h2>Results Management</h2>
+                    <p>Review examination results submitted by teachers.</p>
+                </div>
+
+                <button type="button" id="refreshResultsButton" class="primary-button">
+                    Refresh Results
+                </button>
+            </div>
+
+            <div class="content-card">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Class</th>
+                                <th>Examination</th>
+                                <th>Academic Year</th>
+                                <th>Total Marks</th>
+                                <th>Percentage</th>
+                                <th>Submitted By</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="adminResultsTableBody">
+                            <tr>
+                                <td colspan="8">Loading submitted results...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="adminResultsMessage" role="status"></p>
+            </div>
+
+        </section>
+
+
+        <section
+            id="feesSection"
+            class="dashboard-section"
+        >
+            <div class="empty-state">
+                <span>₹</span>
+                <h3>Fee Management</h3>
+                <p>
+                    Fee records and payment status
+                    will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================================
+            SCHOOL NOTICES
+        ========================================== -->
+
+        <section
+            id="noticesSection"
+            class="dashboard-section"
+        >
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">SCHOOL COMMUNICATION</span>
+                    <h2>Notice Management</h2>
+                    <p>
+                        Publish official school-wide announcements
+                        for students.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Publish Notice Form -->
+            <div
+                class="table-card"
+                style="padding: 24px; margin-bottom: 24px;"
+            >
+                <h3 style="margin-top: 0;">
+                    Publish a Notice
+                </h3>
+
+                <form id="noticeForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-grid notice-form-grid">
+
+                            <div class="field">
+                                <label for="noticeTitle">Notice Title</label>
+
+                                <input
+                                    id="noticeTitle"
+                                    type="text"
+                                    maxlength="120"
+                                    placeholder="e.g. School Holiday Notice"
+                                    required
+                                >
+                            </div>
+
+                            <div class="field">
+                                <label for="noticeCategory">Category</label>
+
+                                <select id="noticeCategory" required>
+                                    <option value="General">General</option>
+                                    <option value="Holiday">Holiday</option>
+                                    <option value="Examination">Examination</option>
+                                    <option value="Event">Event</option>
+                                    <option value="Urgent">Urgent</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="noticeAudience">Notice Audience</label>
+
+                                <select id="noticeAudience" required>
+                                    <option value="everyone">Everyone</option>
+                                    <option value="students">Students Only</option>
+                                    <option value="teachers">Teachers Only</option>
+                                </select>
+
+                                <small class="field-hint">
+                                    Choose which school group this notice is intended for.
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="field notice-message-field">
+                            <label for="noticeMessage">Notice Details</label>
+
+                            <textarea
+                                id="noticeMessage"
+                                rows="6"
+                                maxlength="5000"
+                                placeholder="Write the complete school announcement here..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="notice-form-footer">
+                            <p class="form-help">
+                                📢 Review your notice before publishing it.
+                            </p>
+
+                            <button
+                                id="publishNoticeButton"
+                                type="submit"
+                                class="primary-button"
+                            >
+                                📢 Publish Notice
+                            </button>
+                        </div>
+
+                    <p class="form-help">
+                        Published notices become visible in
+                        the student portal.
+                    </p>
+
+                </form>
+            </div>
+
+            <!-- Published Notices -->
+            <div class="table-card">
+
+                <div class="table-header">
+                    <h3>Published Notices</h3>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Audience</th>
+                                <th>Published</th>
+                                <th>Published By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="noticesTableBody">
+                            <tr>
+                                <td colspan="5">
+                                    Loading notices...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =========================================
+            HOMEPAGE MANAGEMENT
+        ========================================== -->
+
+        <section
+            id="homepageSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">WEBSITE MANAGEMENT</span>
+
+                    <h2>Homepage Management</h2>
+
+                    <p>
+                        Update the information and images displayed
+                        on the public school website.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- HERO SECTION -->
+
+            <div class="table-card homepage-editor-card" style="padding: 24px; margin-bottom: 24px;">
+
+                <h3>Hero Section</h3>
+
+                <p>
+                    Manage the main heading, description and image
+                    displayed at the top of the homepage.
+                </p>
+
+                <form id="homepageHeroForm">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="heroBadge">Badge Text</label>
+
+                            <input
+                                id="heroBadge"
+                                type="text"
+                                placeholder="School of Eminence • Barnala"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="field">
+                            <label for="heroHeading">Main Heading</label>
+
+                            <input
+                                id="heroHeading"
+                                type="text"
+                                placeholder="Empowering Young Minds..."
+                                required
+                            >
+                        </div>
+
+
+                        <div class="field">
+                            <label for="heroDescription">Description</label>
+
+                            <textarea
+                                id="heroDescription"
+                                rows="4"
+                                maxlength="1000"
+                                placeholder="Enter the homepage introduction..."
+                                required
+                            ></textarea>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="heroImageUrl">Hero Image URL</label>
+
+                            <input
+                                id="heroImageUrl"
+                                type="url"
+                                placeholder="https://example.com/school-image.jpg"
+                            >
+
+                            <button
+                                type="button"
+                                class="secondary-button cloudinary-upload-button"
+                                data-upload-target="heroImageUrl"
+                                style="margin-top: 10px;"
+                            >
+                                ↑ Upload Hero Image
+                            </button>
+
+                            <small class="field-hint">
+                                Paste a publicly accessible direct image URL.
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="heroImagePreviewContainer"
+                        style="display: none; margin-top: 16px;"
+                    >
+
+                        <p>Image Preview</p>
+
+                        <img
+                            id="heroImagePreview"
+                            alt="Hero image preview"
+                            style="max-width: 300px; max-height: 180px; object-fit: cover; border-radius: 10px;"
+                        >
+
+                    </div>
+
+
+                    <div style="margin-top: 20px;">
+
+                        <button
+                            type="submit"
+                            id="saveHeroButton"
+                            class="primary-button"
+                        >
+                            Save Hero Section
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- ABOUT SECTION -->
+
+            <div class="table-card homepage-editor-card" style="padding: 24px;">
+
+                <h3>About School</h3>
+
+                <p>
+                    Update the school's introduction and campus image.
+                </p>
+
+                <form id="homepageAboutForm">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="aboutHeading">Section Heading</label>
+
+                            <input
+                                id="aboutHeading"
+                                type="text"
+                                placeholder="About Our School"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="field">
+                            <label for="aboutDescription">School Introduction</label>
+
+                            <textarea
+                                id="aboutDescription"
+                                rows="5"
+                                maxlength="2000"
+                                placeholder="Enter the school's introduction..."
+                                required
+                            ></textarea>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="aboutImageUrl">Campus Image URL</label>
+
+                            <input
+                                id="aboutImageUrl"
+                                type="url"
+                                placeholder="https://example.com/campus.jpg"
+                            >
+
+                            <button
+                                type="button"
+                                class="secondary-button cloudinary-upload-button"
+                                data-upload-target="aboutImageUrl"
+                                style="margin-top: 10px;"
+                            >
+                                ↑ Upload Campus Image
+                            </button>
+
+                            <small class="field-hint">
+                                Paste a publicly accessible direct image URL.
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="aboutImagePreviewContainer"
+                        style="display: none; margin-top: 16px;"
+                    >
+
+                        <p>Image Preview</p>
+
+                        <img
+                            id="aboutImagePreview"
+                            alt="Campus image preview"
+                            style="max-width: 300px; max-height: 180px; object-fit: cover; border-radius: 10px;"
+                        >
+
+                    </div>
+
+
+                    <div style="margin-top: 20px;">
+
+                        <button
+                            type="submit"
+                            id="saveAboutButton"
+                            class="primary-button"
+                        >
+                            Save About Section
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- =========================================
+                HOMEPAGE STATISTICS MANAGEMENT
+            ========================================= -->
+
+            <div class="table-card homepage-editor-card" style="padding: 24px; margin-bottom: 24px;">
+
+                <h3>Homepage Statistics</h3>
+
+                <p>
+                    Manage the statistics displayed in the homepage Hero
+                    and Statistics sections. Enter verified school figures.
+                </p>
+
+                <form id="homepageStatsForm">
+
+                    <!-- HERO STATISTICS -->
+                    <h4>Hero Statistics</h4>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="heroStat1Value">Hero Statistic 1 Value</label>
+                            <input
+                                type="text"
+                                id="heroStat1Value"
+                                maxlength="30"
+                                placeholder="e.g. 1500+"
+                                value="1500+"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="heroStat1Label">Hero Statistic 1 Label</label>
+                            <input
+                                type="text"
+                                id="heroStat1Label"
+                                maxlength="50"
+                                placeholder="e.g. Students"
+                                value="Students"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="heroStat2Value">Hero Statistic 2 Value</label>
+                            <input
+                                type="text"
+                                id="heroStat2Value"
+                                maxlength="30"
+                                placeholder="e.g. 70+"
+                                value="70+"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="heroStat2Label">Hero Statistic 2 Label</label>
+                            <input
+                                type="text"
+                                id="heroStat2Label"
+                                maxlength="50"
+                                placeholder="e.g. Educators"
+                                value="Educators"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="heroStat3Value">Hero Statistic 3 Value</label>
+                            <input
+                                type="text"
+                                id="heroStat3Value"
+                                maxlength="30"
+                                placeholder="e.g. 100%"
+                                value="100%"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="heroStat3Label">Hero Statistic 3 Label</label>
+                            <input
+                                type="text"
+                                id="heroStat3Label"
+                                maxlength="50"
+                                placeholder="e.g. Commitment"
+                                value="Commitment"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <hr style="margin: 24px 0;">
+
+                    <!-- MAIN STATISTICS CARDS -->
+                    <h4>Main Statistics Cards</h4>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="publicStat1Value">Statistic 1 Value</label>
+                            <input
+                                type="number"
+                                id="publicStat1Value"
+                                min="0"
+                                placeholder="e.g. 1500"
+                                value="1500"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat1Label">Statistic 1 Label</label>
+                            <input
+                                type="text"
+                                id="publicStat1Label"
+                                maxlength="50"
+                                value="Students"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat2Value">Statistic 2 Value</label>
+                            <input
+                                type="number"
+                                id="publicStat2Value"
+                                min="0"
+                                placeholder="e.g. 70"
+                                value="70"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat2Label">Statistic 2 Label</label>
+                            <input
+                                type="text"
+                                id="publicStat2Label"
+                                maxlength="50"
+                                value="Teachers & Staff"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat3Value">Statistic 3 Value</label>
+                            <input
+                                type="number"
+                                id="publicStat3Value"
+                                min="0"
+                                placeholder="e.g. 12"
+                                value="12"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat3Label">Statistic 3 Label</label>
+                            <input
+                                type="text"
+                                id="publicStat3Label"
+                                maxlength="50"
+                                value="Academic Grades"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat4Value">Statistic 4 Value</label>
+                            <input
+                                type="number"
+                                id="publicStat4Value"
+                                min="0"
+                                placeholder="e.g. 100"
+                                value="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="publicStat4Label">Statistic 4 Label</label>
+                            <input
+                                type="text"
+                                id="publicStat4Label"
+                                maxlength="50"
+                                value="Dedication %"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="saveHomepageStatsButton"
+                    >
+                        Save Homepage Statistics
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- =========================================
+                ACADEMICS MANAGEMENT
+            ========================================= -->
+
+            <div class="table-card homepage-editor-card">
+
+                <div class="section-header">
+                    <div>
+                        <h3>Academics Section</h3>
+                        <p>Manage the academic information displayed on the homepage.</p>
+                    </div>
+                </div>
+
+                <form id="homepageAcademicsForm">
+
+                    <div class="field">
+                        <label for="academicsHeading">Section Heading</label>
+                        <input
+                            type="text"
+                            id="academicsHeading"
+                            required
+                            maxlength="150"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="academicsDescription">Section Description</label>
+                        <textarea
+                            id="academicsDescription"
+                            rows="3"
+                            required
+                            maxlength="500"
+                        ></textarea>
+                    </div>
+
+                    <hr>
+
+                    <h3>Academic Cards</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Card 1 Icon</label>
+                            <input id="academic1Icon" maxlength="10" placeholder="🔬">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 1 Title</label>
+                            <input id="academic1Title" required maxlength="80">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 1 Description</label>
+                            <textarea id="academic1Description" required maxlength="300"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Card 2 Icon</label>
+                            <input id="academic2Icon" maxlength="10" placeholder="📐">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 2 Title</label>
+                            <input id="academic2Title" required maxlength="80">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 2 Description</label>
+                            <textarea id="academic2Description" required maxlength="300"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Card 3 Icon</label>
+                            <input id="academic3Icon" maxlength="10" placeholder="🌐">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 3 Title</label>
+                            <input id="academic3Title" required maxlength="80">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 3 Description</label>
+                            <textarea id="academic3Description" required maxlength="300"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Card 4 Icon</label>
+                            <input id="academic4Icon" maxlength="10" placeholder="💻">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 4 Title</label>
+                            <input id="academic4Title" required maxlength="80">
+                        </div>
+
+                        <div class="field">
+                            <label>Card 4 Description</label>
+                            <textarea id="academic4Description" required maxlength="300"></textarea>
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="saveAcademicsButton"
+                    >
+                        Save Academics Section
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- FACULTY MANAGEMENT -->
+
+            <div class="table-card homepage-editor-card">
+
+                <div class="section-header">
+                    <div>
+                        <h3>Faculty Management</h3>
+                        <p>Manage the faculty profiles displayed on the homepage.</p>
+                    </div>
+                </div>
+
+                <form id="facultyForm">
+
+                    <input type="hidden" id="facultyEditId">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Faculty Name</label>
+                            <input id="facultyName" required maxlength="100">
+                        </div>
+
+                        <div class="field">
+                            <label>Designation</label>
+                            <input id="facultyDesignation" required maxlength="100">
+                        </div>
+
+                        <div class="field">
+                            <label>Department / Subject</label>
+                            <input id="facultyDepartment" required maxlength="100">
+                        </div>
+
+                        <div class="field">
+                            <label>Photograph URL</label>
+                            <input
+                                id="facultyImageUrl"
+                                type="url"
+                                placeholder="https://example.com/photo.jpg"
+                            >
+
+                            <button
+                                type="button"
+                                class="secondary-button cloudinary-upload-button"
+                                data-upload-target="facultyImageUrl"
+                                style="margin-top: 10px;"
+                            >
+                                ↑ Upload Faculty Photograph
+                            </button>
+                        </div>
+
+                        <div class="field">
+                            <label>Display Order</label>
+                            <input
+                                id="facultyOrder"
+                                type="number"
+                                min="1"
+                                max="100"
+                                value="1"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="primary-button" id="saveFacultyButton">
+                        Add Faculty Member
+                    </button>
+
+                    <button type="button" id="cancelFacultyEdit" class="secondary-button" hidden>
+                        Cancel Editing
+                    </button>
+
+                </form>
+
+                <hr>
+
+                <h3>Existing Faculty Members</h3>
+
+                <div id="adminFacultyList">
+                    <p class="empty-state">No faculty members added yet.</p>
+                </div>
+
+            </div>
+
+            <!-- ACHIEVEMENTS MANAGEMENT -->
+
+            <div class="table-card homepage-editor-card">
+
+                <div class="section-header">
+                    <div>
+                        <h3>Achievements Management</h3>
+                        <p>Manage the achievements displayed on the public homepage.</p>
+                    </div>
+                </div>
+
+                <form id="achievementForm">
+
+                    <input type="hidden" id="achievementEditId">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="achievementsHeading">Section Heading</label>
+                            <input id="achievementsHeading" maxlength="150"
+                                placeholder="Every achievement begins with a single step.">
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementsDescription">Section Description</label>
+                            <textarea id="achievementsDescription" rows="3"
+                                maxlength="600"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementTitle">Achievement Title</label>
+                            <input id="achievementTitle" required maxlength="120">
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementCategory">Category</label>
+                            <select id="achievementCategory" required>
+                                <option value="Academic Excellence">Academic Excellence</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Innovation">Innovation</option>
+                                <option value="Arts & Culture">Arts & Culture</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementDescription">Description</label>
+                            <textarea id="achievementDescription" rows="3"
+                                required maxlength="400"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementIcon">Icon / Emoji</label>
+                            <input id="achievementIcon" maxlength="10" placeholder="🏆">
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementImageUrl">Image URL (Optional)</label>
+                            <input id="achievementImageUrl" type="url"
+                                placeholder="https://example.com/image.jpg">
+
+                                <button
+                                    type="button"
+                                    class="secondary-button cloudinary-upload-button"
+                                    data-upload-target="achievementImageUrl"
+                                    style="margin-top: 10px;"
+                                >
+                                    ↑ Upload Achievement Image
+                                </button>
+                        </div>
+
+                        <div class="field">
+                            <label for="achievementOrder">Display Order</label>
+                            <input id="achievementOrder" type="number"
+                                min="1" max="100" value="1">
+                        </div>
+
+                    </div>
+
+                    <div style="display:flex;gap:10px;margin-top:18px;">
+
+                        <button type="submit" class="primary-button"
+                            id="saveAchievementButton">
+                            Add Achievement
+                        </button>
+
+                        <button type="button" class="secondary-button"
+                            id="cancelAchievementEdit" hidden>
+                            Cancel Editing
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <hr style="margin:25px 0;">
+
+                <h3>Existing Achievements</h3>
+
+                <div id="adminAchievementsList">
+                    <p>Loading achievements...</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         TEACHER MODAL
+    ========================================== -->
+
+    <div
+        id="teacherModal"
+        class="modal"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="eyebrow">
+                        NEW TEACHER
+                    </span>
+
+                    <h2>
+                        Add Teacher
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    data-close="teacherModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="teacherForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            id="teacherName"
+                            type="text"
+                            placeholder="Enter teacher name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            School Email
+                        </label>
+
+                        <input
+                            id="teacherEmail"
+                            type="email"
+                            placeholder="teacher@school.edu"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+                        <label for="teacherPassword">Password</label>
+
+                        <input
+                            id="teacherPassword"
+                            type="password"
+                            placeholder="Set teacher password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+
+                        <label>
+                            Department
+                        </label>
+
+                        <input
+                            id="teacherDepartment"
+                            type="text"
+                            placeholder="Mathematics"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+                        <label>Teacher ID</label>
+
+                        <div class="input-with-button">
+                            <input
+                                id="teacherId"
+                                type="text"
+                                placeholder="e.g. TCH-001"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="generateTeacherId"
+                                class="secondary-button"
+                            >
+                                Generate
+                            </button>
+                        </div>
+
+                        <small class="field-hint">
+                            Admin can enter a custom Teacher ID or generate one automatically.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close="teacherModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Teacher
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         CLASS MODAL
+    ========================================== -->
+
+    <div
+        id="classModal"
+        class="modal"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="eyebrow">
+                        NEW CLASS
+                    </span>
+
+                    <h2>
+                        Create Class
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    data-close="classModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="classForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label>
+                            Class
+                        </label>
+
+                        <input
+                            id="className"
+                            type="text"
+                            placeholder="10"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Section
+                        </label>
+
+                        <input
+                            id="classSection"
+                            type="text"
+                            placeholder="A"
+                            maxlength="3"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close="classModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Class
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TEACHER / CLASS ASSIGNMENT MODAL
+    ========================================== -->
+
+    <div id="assignmentModal" class="modal">
+
+        <div class="modal-card assignment-modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="eyebrow">ASSIGNMENT MANAGEMENT</span>
+                    <h2 id="assignmentTeacherName">Assign Teacher</h2>
+                    <p class="modal-subtitle">
+                        Assign classes and subjects to a teacher.
+                        You can also set the teacher as class in-charge.
+                    </p>
+                </div>
+
+                <button
+                    class="modal-close"
+                    data-close="assignmentModal"
+                    type="button"
+                >×</button>
+
+            </div>
+
+            <form id="assignmentForm">
+
+                <input id="assignmentTeacherId" type="hidden">
+
+                <div id="assignmentMatrix" class="assignment-matrix"></div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close="assignmentModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         SUBJECT MODAL
+    ========================================== -->
+
+    <div id="subjectModal" class="modal">
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="eyebrow">NEW SUBJECT</span>
+                    <h2>Add Subject</h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    data-close="subjectModal"
+                    type="button"
+                >×</button>
+
+            </div>
+
+            <form id="subjectForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Subject Name</label>
+                        <input
+                            id="subjectName"
+                            type="text"
+                            placeholder="Mathematics"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Subject Code</label>
+                        <input
+                            id="subjectCode"
+                            type="text"
+                            placeholder="MATH"
+                            maxlength="12"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close="subjectModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Subject
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <!-- Cloudinary Upload Widget -->
+    <script
+        src="https://upload-widget.cloudinary.com/global/all.js"
+        type="text/javascript"
+    ></script>
+
+    <!-- Existing Dashboard JavaScript -->
+    <script
+        type="module"
+        src="./js/dashboard.js"
+    ></script>
+
+    <!-- Reusable Cloudinary Image Picker -->
+    <input
+        type="file"
+        id="cloudinaryImagePicker"
+        accept="image/jpeg,image/png,image/webp"
+    >
+
+</body>
+
+</html>

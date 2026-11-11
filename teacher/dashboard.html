@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Teacher Dashboard | SoE Risers</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <div class="logo-circle">S</div>
+
+            <div>
+                <h2>SoE Risers</h2>
+                <span>Teacher Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+                🏠 Overview
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="classes"
+            >
+                📚 My Classes
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="students"
+            >
+                👨‍🎓 Students
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="attendance"
+            >
+                📋 Attendance
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="results"
+            >
+                📝 Results
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="fees"
+            >
+                💰 Fee Management
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="assignments"
+            >
+                📖 Assignments
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="notices"
+            >
+                📢 Notices
+            </button>
+
+        </nav>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">TEACHER PORTAL</p>
+
+                <h1 id="teacherWelcome">
+                    Welcome, Teacher
+                </h1>
+            </div>
+
+            <div class="teacher-profile">
+
+                <div class="avatar">
+                    T
+                </div>
+
+                <div>
+                    <strong id="teacherName">
+                        Teacher
+                    </strong>
+
+                    <small id="teacherIdDisplay">
+                        Teacher ID
+                    </small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- OVERVIEW -->
+        <section
+            id="overview"
+            class="dashboard-section active"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        DASHBOARD
+                    </p>
+
+                    <h2>
+                        My Overview
+                    </h2>
+
+                    <p>
+                        View your assigned classes and subjects.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        📚
+                    </span>
+
+                    <div>
+                        <span>
+                            Assigned Classes
+                        </span>
+
+                        <strong id="classCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        📖
+                    </span>
+
+                    <div>
+                        <span>
+                            Subjects
+                        </span>
+
+                        <strong id="subjectCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        👨‍🎓
+                    </span>
+
+                    <div>
+                        <span>
+                            Students
+                        </span>
+
+                        <strong id="studentCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MY CLASSES -->
+            <div class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>
+                            My Classes
+                        </h3>
+
+                        <p>
+                            Classes assigned to you by the administrator.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div
+                    id="myClassesContainer"
+                    class="classes-container"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            📚
+                        </div>
+
+                        <h3>
+                            No classes assigned
+                        </h3>
+
+                        <p>
+                            Your assigned classes will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLASSES -->
+        <section
+            id="classes"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        ACADEMICS
+                    </p>
+
+                    <h2>
+                        My Classes
+                    </h2>
+
+                    <p>
+                        View the classes and subjects assigned to you.
+                    </p>
+                </div>
+
+            </div>
+
+            <div
+                id="classesPageContainer"
+                class="classes-container"
+            ></div>
+
+        </section>
+
+
+        <!-- STUDENTS -->
+        <section
+            id="students"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        STUDENTS
+                    </p>
+
+                    <h2>
+                        My Students
+                    </h2>
+
+                    <p>
+                        Manage students belonging to your assigned classes.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="student-toolbar">
+
+                    <div class="field">
+
+                        <label for="studentClassSelect">
+                            Select Class
+                        </label>
+
+                        <select id="studentClassSelect">
+                            <option value="">
+                                Select a class
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        id="addStudentButton"
+                        class="primary-button"
+                        type="button"
+                        disabled
+                    >
+                        + Add Student
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="studentListContainer"
+                    class="student-list-container"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            👨‍🎓
+                        </div>
+
+                        <h3>
+                            Select a class
+                        </h3>
+
+                        <p>
+                            Select one of your assigned classes
+                            to view its students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD STUDENT MODAL -->
+
+        <div
+            id="studentModal"
+            class="modal"
+        >
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            STUDENT MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Add Student
+                        </h2>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="modal-close"
+                        data-close-student-modal
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <form id="studentForm">
+
+                    <div class="field">
+
+                        <label for="studentId">
+                            Student ID
+                        </label>
+
+                        <div class="input-with-button">
+
+                            <input
+                                id="studentId"
+                                type="text"
+                                placeholder="e.g. STU-2026-ABC123"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="generateStudentId"
+                                class="secondary-button"
+                            >
+                                Generate
+                            </button>
+
+                        </div>
+
+                        <small class="field-hint">
+                            Enter the school's Student ID or generate one.
+                        </small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="studentName">
+                            Student Name
+                        </label>
+
+                        <input
+                            id="studentName"
+                            type="text"
+                            placeholder="Enter student name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="field">
+
+                            <label for="studentRollNo">
+                                Roll Number
+                            </label>
+
+                            <input
+                                id="studentRollNo"
+                                type="text"
+                                placeholder="e.g. 21"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="studentSection">
+                                Section
+                            </label>
+
+                            <input
+                                id="studentSection"
+                                type="text"
+                                placeholder="e.g. A"
+                                required
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="studentEmail">
+                            School Email
+                        </label>
+
+                        <input
+                            id="studentEmail"
+                            type="email"
+                            placeholder="student@school.edu"
+                            required
+                        >
+
+                        <small class="field-hint">
+                            This email will be used for the student's Firebase login.
+                        </small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="field">
+
+                        <label for="studentPassword">
+                            Student Password
+                        </label>
+
+                        <input
+                            id="studentPassword"
+                            type="password"
+                            placeholder="Create student password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <small class="field-hint">
+                            Minimum 6 characters. This password is used for student login.
+                        </small>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="field">
+
+                        <label for="studentPasswordConfirm">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            id="studentPasswordConfirm"
+                            type="password"
+                            placeholder="Re-enter student password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            data-close-student-modal
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Create Student Account
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- ATTENDANCE -->
+        <section
+            id="attendance"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    Attendance
+                </h2>
+
+                <p>
+                    Attendance management will be added here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+        <section
+            id="results"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ACADEMIC MANAGEMENT</p>
+                    <h2>Results & Examination</h2>
+                    <p>
+                        Enter marks for all subjects in your assigned
+                        classes and submit results for administrator review.
+                    </p>
+                </div>
+            </div>
+
+            <!-- RESULTS ENTRY -->
+            <div class="content-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Enter Examination Results</h3>
+                        <p>
+                            Select your class and examination to begin.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="resultsSetupForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="resultsClassSelect">
+                                Class & Section
+                            </label>
+
+                            <select
+                                id="resultsClassSelect"
+                                required
+                            >
+                                <option value="">
+                                    Select class
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resultsExamName">
+                                Examination Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resultsExamName"
+                                placeholder="e.g. Half-Yearly Examination"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resultsAcademicYear">
+                                Academic Year
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resultsAcademicYear"
+                                placeholder="e.g. 2026-2027"
+                                pattern="[0-9]{4}-[0-9]{4}"
+                                title="Use the format 2026-2027"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resultsTerm">
+                                Term / Session
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resultsTerm"
+                                placeholder="e.g. Term 1"
+                                maxlength="50"
+                            >
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="loadResultsStudentsButton"
+                    >
+                        Load Class Students
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- MARKS TABLE -->
+            <div
+                class="content-card"
+                id="resultsEntryCard"
+                hidden
+            >
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Student Marks</h3>
+                        <p>
+                            Enter marks for each subject. Maximum marks
+                            will be configured for each subject.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="resultsEntryMessage"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+                <div class="table-container">
+                    <table class="data-table">
+
+                        <thead id="resultsTableHead">
+                            <tr>
+                                <th>Roll No.</th>
+                                <th>Student Name</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="resultsTableBody">
+                            <tr>
+                                <td colspan="2">
+                                    Select a class and load its students.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="saveResultsDraftButton"
+                    >
+                        Save Draft
+                    </button>
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="submitResultsButton"
+                    >
+                        Submit to Admin
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- PREVIOUS RESULTS -->
+            <div class="content-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>My Submitted Results</h3>
+                        <p>
+                            Review the results you have saved or submitted.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="teacherPreviousResults"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <p>
+                        Your saved and submitted results will appear here.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+            TEACHER FEE MANAGEMENT
+        ====================================================== -->
+
+        <section
+            id="fees"
+            class="dashboard-section"
+            aria-labelledby="feesHeading"
+        >
+            <div class="section-header">
+                <div>
+                    <h2 id="feesHeading">Fee Management</h2>
+                    <p>
+                        Manage student fees, record payments, and track
+                        outstanding balances for your assigned classes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Fee summary -->
+            <div class="stats-grid fee-stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p>Total Students</p>
+                        <h3 id="teacherFeeStudentCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p>Total Fees</p>
+                        <h3 id="teacherFeeTotalAmount">₹0.00</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p>Total Received</p>
+                        <h3 id="teacherFeePaidAmount">₹0.00</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p>Outstanding Balance</p>
+                        <h3 id="teacherFeeBalanceAmount">₹0.00</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Student fee records -->
+            <div class="content-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Student Fee Records</h3>
+                        <p>Manage student fees and track payments.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="refreshTeacherFeesButton">
+                        Refresh
+                    </button>
+                </div>
+
+                <!-- Class filter -->
+                <div class="fee-filters">
+
+                    <!-- Student search -->
+                    <div class="form-group">
+                        <label for="teacherFeeStudentSearch">
+                            Search Student
+                        </label>
+
+                        <input
+                            type="search"
+                            id="teacherFeeStudentSearch"
+                            placeholder="Search by name or student ID"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                </div>
+
+                <!-- JS renders the student fee table here -->
+                <div
+                    id="teacherFeesContainer"
+                    aria-live="polite"
+                >
+                    <p>Fee records will appear here.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ASSIGNMENTS -->
+        <section
+            id="assignments"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    Assignments
+                </h2>
+
+                <p>
+                    Assignment management will be added here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTICES -->
+        <section
+            id="notices"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <h2>
+                    Notices
+                </h2>
+
+                <p>
+                    Relevant school notices will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOAST -->
+    <div
+        id="toastContainer"
+        class="toast-container"
+    ></div>
+
+
+    <script
+        type="module"
+        src="./js/dashboard.js"
+    ></script>
+
+</body>
+
+</html>
