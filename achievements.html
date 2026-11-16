@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Achievements | School of Eminence, Barnala</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/achievements.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="achievements-header">
+
+        <a href="index.html" class="achievements-logo">
+            <span>SoE</span> RISERS
+        </a>
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="achievements-hero">
+
+        <div class="achievements-hero-content">
+
+            <span class="achievements-eyebrow">
+                OUR JOURNEY OF EXCELLENCE
+            </span>
+
+            <h1 id="pageHeading">
+                Celebrating
+                <span>Achievements.</span>
+            </h1>
+
+            <p id="pageDescription">
+                Every achievement tells a story of dedication,
+                determination and excellence.
+            </p>
+
+            <div class="achievement-total">
+                <strong id="achievementCount">0</strong>
+                <span>Achievements & Milestones</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <main class="achievements-main">
+
+        <div class="achievements-intro">
+
+            <div>
+                <span class="section-label">OUR HIGHLIGHTS</span>
+
+                <h2>Moments that make us proud.</h2>
+            </div>
+
+            <p>
+                Explore the achievements, celebrations and
+                milestones of our school community.
+            </p>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="achievement-filters" id="achievementFilters">
+
+            <button class="filter-btn active" data-category="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-category="academic">
+                Academic
+            </button>
+
+            <button class="filter-btn" data-category="sports">
+                Sports
+            </button>
+
+            <button class="filter-btn" data-category="cultural">
+                Cultural
+            </button>
+
+            <button class="filter-btn" data-category="events">
+                School Events
+            </button>
+
+            <button class="filter-btn" data-category="competitions">
+                Competitions
+            </button>
+
+            <button class="filter-btn" data-category="other">
+                Others
+            </button>
+
+        </div>
+
+
+        <!-- CARDS -->
+
+        <section
+            class="achievements-list"
+            id="achievementsList"
+            aria-live="polite">
+
+            <div class="achievement-loading">
+                Loading achievements...
+            </div>
+
+        </section>
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="achievement-empty" id="achievementEmpty" hidden>
+
+            <span>🏆</span>
+
+            <h3>No achievements found</h3>
+
+            <p>
+                There are currently no achievements in this category.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="achievements-footer">
+
+        <p>
+            © <span id="footerYear"></span>
+            School of Eminence, Barnala.
+            All Rights Reserved.
+        </p>
+
+        <a href="index.html">Return to Homepage ↑</a>
+
+    </footer>
+
+
+    <script type="module" src="js/achievements.js"></script>
+
+</body>
+
+</html>

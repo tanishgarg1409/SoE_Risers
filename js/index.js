@@ -271,19 +271,6 @@ notices.forEach(notice => {
 });
 
 /* =========================================================
-   ACHIEVEMENT BUTTON
-   ========================================================= */
-
-const achievementBtn =
-    document.getElementById("achievementBtn");
-
-achievementBtn.addEventListener("click", () => {
-    alert(
-        "The complete achievement gallery will be available here once the school's official content is added."
-    );
-});
-
-/* =========================================================
    CONTACT FORM
    ========================================================= */
 
