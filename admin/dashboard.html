@@ -1547,6 +1547,105 @@
 
             </div>
 
+            <!-- =========================================
+                EVENTS & MEMORIES MANAGEMENT
+            ========================================= -->
+
+            <div class="table-card homepage-editor-card">
+
+                <div class="section-header">
+                    <div>
+                        <h3>Events & Memories Management</h3>
+                        <p>Manage school functions, celebrations, trips and memorable activities.</p>
+                    </div>
+                </div>
+
+                <form id="eventForm">
+
+                    <input type="hidden" id="eventEditId">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="eventTitle">Event Title</label>
+                            <input id="eventTitle" required maxlength="120"
+                                placeholder="Annual Function 2026">
+                        </div>
+
+                        <div class="field">
+                            <label for="eventDate">Event Date</label>
+                            <input id="eventDate" type="date" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="eventCategory">Event Category</label>
+                            <select id="eventCategory" required>
+                                <option value="Annual Functions">Annual Functions</option>
+                                <option value="Sports Day">Sports Day</option>
+                                <option value="Cultural Events">Cultural Events</option>
+                                <option value="Educational Trips">Educational Trips</option>
+                                <option value="Celebrations">Celebrations</option>
+                                <option value="Competitions">Competitions</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="eventDescription">Event Description</label>
+                            <textarea id="eventDescription" rows="3"
+                                required maxlength="800"
+                                placeholder="Describe the event..."></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="eventImageUrl">Event Image URL</label>
+
+                            <input id="eventImageUrl" type="url"
+                                placeholder="https://example.com/image.jpg">
+
+                            <button
+                                type="button"
+                                class="secondary-button cloudinary-upload-button"
+                                data-upload-target="eventImageUrl"
+                                style="margin-top:10px;">
+                                ↑ Upload Event Image
+                            </button>
+                        </div>
+
+                        <div class="field">
+                            <label for="eventOrder">Display Order</label>
+                            <input id="eventOrder" type="number"
+                                min="1" max="1000" value="1">
+                        </div>
+
+                    </div>
+
+                    <div style="display:flex;gap:10px;margin-top:18px;">
+
+                        <button type="submit" class="primary-button"
+                            id="saveEventButton">
+                            Add Event
+                        </button>
+
+                        <button type="button" class="secondary-button"
+                            id="cancelEventEdit" hidden>
+                            Cancel Editing
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <hr style="margin:25px 0;">
+
+                <h3>Existing Events</h3>
+
+                <div id="adminEventsList">
+                    <p>Loading events...</p>
+                </div>
+
+            </div>
+
         </section>
 
     </main>

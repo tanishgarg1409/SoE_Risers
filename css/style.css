@@ -2621,8 +2621,8 @@ body.dark .floating-card {
 
 .achievement-layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 60px;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 45px;
     align-items: center;
     width: 100%;
 }
@@ -2632,17 +2632,22 @@ body.dark .floating-card {
     min-width: 0;
 }
 
-/* Gallery container */
+/* Gallery: exactly two cards in one row */
 
 #publicAchievementCards {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 
     width: 100%;
-    max-width: 560px;
+    max-width: none;
+    justify-self: stretch;
+}
 
-    justify-self: end;
+/* Hide cards after the first two */
+
+#publicAchievementCards .achievement-card:nth-child(n+3) {
+    display: none;
 }
 
 /* Individual achievement card */
@@ -2650,20 +2655,17 @@ body.dark .floating-card {
 #publicAchievementCards .achievement-card {
     display: flex;
     flex-direction: column;
-
     width: 100%;
-    max-width: 100%;
     min-width: 0;
+    max-width: 100%;
 
-    padding: 24px;
+    padding: 18px;
     margin: 0;
-
     box-sizing: border-box;
 
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-
     overflow: hidden;
 
     transition: var(--transition);
@@ -2678,18 +2680,15 @@ body.dark .floating-card {
 
 #publicAchievementCards .achievement-card img {
     display: block;
-
     width: 100%;
-    height: 260px;
+    height: 210px;
 
-    /* Show the complete photograph */
     object-fit: contain;
     object-position: center;
 
     background: var(--surface-soft);
-
     border-radius: 14px;
-    margin: 0 0 20px;
+    margin: 0 0 16px;
 }
 
 /* Achievement icon */
@@ -2704,7 +2703,7 @@ body.dark .floating-card {
 
 #publicAchievementCards .achievement-card strong {
     display: block;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 8px;
 }
@@ -2713,16 +2712,16 @@ body.dark .floating-card {
 
 #publicAchievementCards .achievement-card p {
     color: var(--text-soft);
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.6;
     margin: 0;
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   TABLET AND MOBILE
 ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
 
     .achievement-layout {
         grid-template-columns: 1fr;
@@ -2730,26 +2729,17 @@ body.dark .floating-card {
     }
 
     #publicAchievementCards {
-        max-width: 100%;
-        justify-self: stretch;
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    #publicAchievementCards {
-        gap: 18px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     #publicAchievementCards .achievement-card {
-        padding: 16px;
+        padding: 18px;
     }
 
     #publicAchievementCards .achievement-card img {
-        height: 220px;
+        height: 230px;
     }
-
 }
 
 /* ============================================

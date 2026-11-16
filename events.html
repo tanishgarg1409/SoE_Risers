@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events & Memories | School of Eminence Barnala</title>
+    <meta name="description" content="Explore school events, celebrations, activities and memorable moments at School of Eminence Barnala.">
+
+    <link rel="stylesheet" href="css/events.css">
+</head>
+
+<body>
+
+    <header class="events-header">
+        <a href="index.html" class="school-brand">
+            <span class="brand-icon">S</span>
+            <span>
+                <strong>School of Eminence</strong>
+                <small>Barnala</small>
+            </span>
+        </a>
+
+        <a href="achievements.html" class="back-link">
+            ← Back to Achievements
+        </a>
+    </header>
+
+    <section class="events-hero">
+        <div class="hero-content">
+            <span class="eyebrow">LIFE AT OUR SCHOOL</span>
+
+            <h1>Events & <span>Memories</span></h1>
+
+            <p>
+                Every event creates a memory. Explore the celebrations,
+                activities and special moments that make our school unique.
+            </p>
+
+            <div class="event-total">
+                <strong id="eventCount">0</strong>
+                <span>Memorable Events</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="events-container">
+
+        <!-- Search and date filters -->
+        <section class="event-search-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">OUR SCHOOL JOURNEY</span>
+                    <h2>Explore Our Events</h2>
+                    <p>Find memorable moments by category or date.</p>
+                </div>
+            </div>
+
+            <div class="date-filter">
+
+                <div class="date-field">
+                    <label for="startDate">From Date</label>
+                    <input type="date" id="startDate">
+                </div>
+
+                <div class="date-field">
+                    <label for="endDate">To Date</label>
+                    <input type="date" id="endDate">
+                </div>
+
+                <button id="applyDateFilter" class="filter-button">
+                    Search Events
+                </button>
+
+                <button id="clearFilters" class="clear-button">
+                    Clear Filters
+                </button>
+
+            </div>
+
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-btn active" data-category="all">
+                    All Events
+                </button>
+
+                <button class="category-btn" data-category="Annual Functions">
+                    Annual Functions
+                </button>
+
+                <button class="category-btn" data-category="Sports Day">
+                    Sports Day
+                </button>
+
+                <button class="category-btn" data-category="Cultural Events">
+                    Cultural Events
+                </button>
+
+                <button class="category-btn" data-category="Educational Trips">
+                    Educational Trips
+                </button>
+
+                <button class="category-btn" data-category="Celebrations">
+                    Celebrations
+                </button>
+
+                <button class="category-btn" data-category="Competitions">
+                    Competitions
+                </button>
+
+                <button class="category-btn" data-category="Other">
+                    Other
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Events -->
+        <section class="events-grid" id="eventsGrid">
+
+            <div class="loading-message">
+                Loading school memories...
+            </div>
+
+        </section>
+
+        <div class="empty-state" id="emptyState" hidden>
+            <div class="empty-icon">📸</div>
+            <h3>No Events Found</h3>
+            <p>Try another date range or category.</p>
+        </div>
+
+    </main>
+
+    <footer class="events-footer">
+        <p>
+            © <span id="footerYear"></span>
+            School of Eminence, Barnala.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+    <script type="module" src="js/events.js"></script>
+
+</body>
+</html>

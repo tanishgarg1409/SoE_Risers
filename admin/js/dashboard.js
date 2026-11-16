@@ -279,6 +279,7 @@ async function openSection(section) {
         await loadHomepageContent();
         await loadHomepageFaculty();
         await loadHomepageAchievements();
+        await loadSchoolEvents();
     }
 }
 
@@ -3747,6 +3748,392 @@ if (cloudinaryImagePicker) {
     });
 
 }
+
+// ============================================
+// EVENTS & MEMORIES MANAGEMENT
+// ============================================
+
+let schoolEvents = [];
+
+const eventForm = document.getElementById("eventForm");
+
+
+// ============================================
+// LOAD EVENTS
+// ============================================
+
+async function loadSchoolEvents() {
+
+    try {
+
+        const snapshot = await getDoc(
+            doc(db, "siteContent", "events")
+        );
+
+        schoolEvents = snapshot.exists()
+            ? snapshot.data().items || []
+            : [];
+
+        renderAdminEvents();
+
+    } catch (error) {
+
+        console.error("Events loading error:", error);
+
+        showToast("Could not load events.", "error");
+
+    }
+
+}
+
+
+// ============================================
+// RENDER ADMIN EVENTS
+// ============================================
+
+function renderAdminEvents() {
+
+    const container = document.getElementById(
+        "adminEventsList"
+    );
+
+    if (!container) return;
+
+    container.replaceChildren();
+
+    if (!schoolEvents.length) {
+
+        container.textContent = "No events added yet.";
+
+        return;
+
+    }
+
+    const sorted = [...schoolEvents].sort(
+        (a, b) => (b.date || "").localeCompare(a.date || "")
+    );
+
+    sorted.forEach(item => {
+
+        const card = document.createElement("div");
+
+        card.className = "record-card";
+
+        const title = document.createElement("h3");
+        title.textContent = item.title;
+
+        const date = document.createElement("p");
+        date.textContent = `📅 ${item.date || "No date"}`;
+
+        const category = document.createElement("small");
+        category.textContent = item.category || "Other";
+
+        const description = document.createElement("p");
+        description.textContent = item.description || "";
+
+        const editButton = document.createElement("button");
+
+        editButton.type = "button";
+        editButton.className = "secondary-button";
+        editButton.textContent = "Edit";
+
+        editButton.addEventListener("click", () => {
+            editSchoolEvent(item.id);
+        });
+
+        const deleteButton = document.createElement("button");
+
+        deleteButton.type = "button";
+        deleteButton.className = "secondary-button";
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", () => {
+            deleteSchoolEvent(item.id);
+        });
+
+        card.append(
+            title,
+            date,
+            category,
+            description,
+            editButton,
+            deleteButton
+        );
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// ============================================
+// SAVE EVENTS
+// ============================================
+
+async function saveSchoolEvents() {
+
+    await setDoc(
+        doc(db, "siteContent", "events"),
+        {
+            items: schoolEvents,
+            updatedAt: serverTimestamp(),
+            updatedBy: auth.currentUser.uid
+        },
+        { merge: true }
+    );
+
+}
+
+
+// ============================================
+// EVENT FORM SUBMISSION
+// ============================================
+
+if (eventForm) {
+
+    eventForm.addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        if (!requireAdminSession()) return;
+
+        const editId = document.getElementById(
+            "eventEditId"
+        ).value;
+
+        const imageUrl = document.getElementById(
+            "eventImageUrl"
+        ).value.trim();
+
+        if (imageUrl) {
+
+            try {
+
+                if (new URL(imageUrl).protocol !== "https:") {
+                    throw new Error("HTTPS required");
+                }
+
+            } catch {
+
+                showToast(
+                    "Please enter a valid HTTPS image URL.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+        }
+
+        const eventData = {
+
+            id: editId || crypto.randomUUID(),
+
+            title: document.getElementById(
+                "eventTitle"
+            ).value.trim(),
+
+            date: document.getElementById(
+                "eventDate"
+            ).value,
+
+            category: document.getElementById(
+                "eventCategory"
+            ).value,
+
+            description: document.getElementById(
+                "eventDescription"
+            ).value.trim(),
+
+            imageUrl,
+
+            order: Number(
+                document.getElementById(
+                    "eventOrder"
+                ).value
+            ) || 1
+
+        };
+
+        if (
+            !eventData.title ||
+            !eventData.date ||
+            !eventData.description
+        ) {
+
+            showToast("Complete all required fields.", "error");
+
+            return;
+
+        }
+
+        const button = document.getElementById(
+            "saveEventButton"
+        );
+
+        button.disabled = true;
+
+        try {
+
+            if (editId) {
+
+                schoolEvents = schoolEvents.map(item =>
+                    item.id === editId ? eventData : item
+                );
+
+            } else {
+
+                schoolEvents.push(eventData);
+
+            }
+
+            await saveSchoolEvents();
+
+            eventForm.reset();
+
+            document.getElementById("eventEditId").value = "";
+
+            document.getElementById("eventOrder").value = 1;
+
+            button.textContent = "Add Event";
+
+            document.getElementById(
+                "cancelEventEdit"
+            ).hidden = true;
+
+            renderAdminEvents();
+
+            showToast("Event saved successfully.", "success");
+
+        } catch (error) {
+
+            console.error(error);
+
+            showToast("Could not save event.", "error");
+
+        } finally {
+
+            button.disabled = false;
+
+        }
+
+    });
+
+}
+
+
+// ============================================
+// EDIT EVENT
+// ============================================
+
+function editSchoolEvent(id) {
+
+    const item = schoolEvents.find(
+        event => event.id === id
+    );
+
+    if (!item) return;
+
+    document.getElementById("eventEditId").value = item.id;
+
+    document.getElementById("eventTitle").value =
+        item.title || "";
+
+    document.getElementById("eventDate").value =
+        item.date || "";
+
+    document.getElementById("eventCategory").value =
+        item.category || "Other";
+
+    document.getElementById("eventDescription").value =
+        item.description || "";
+
+    document.getElementById("eventImageUrl").value =
+        item.imageUrl || "";
+
+    document.getElementById("eventOrder").value =
+        item.order || 1;
+
+    document.getElementById(
+        "saveEventButton"
+    ).textContent = "Update Event";
+
+    document.getElementById(
+        "cancelEventEdit"
+    ).hidden = false;
+
+    eventForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+// ============================================
+// DELETE EVENT
+// ============================================
+
+async function deleteSchoolEvent(id) {
+
+    if (!requireAdminSession()) return;
+
+    if (!confirm("Delete this event permanently?")) return;
+
+    const previous = [...schoolEvents];
+
+    schoolEvents = schoolEvents.filter(
+        item => item.id !== id
+    );
+
+    try {
+
+        await saveSchoolEvents();
+
+        renderAdminEvents();
+
+        showToast("Event deleted.", "success");
+
+    } catch (error) {
+
+        schoolEvents = previous;
+
+        renderAdminEvents();
+
+        console.error(error);
+
+        showToast("Could not delete event.", "error");
+
+    }
+
+}
+
+
+// ============================================
+// CANCEL EVENT EDIT
+// ============================================
+
+document.getElementById(
+    "cancelEventEdit"
+)?.addEventListener("click", () => {
+
+    eventForm.reset();
+
+    document.getElementById("eventEditId").value = "";
+
+    document.getElementById("eventOrder").value = 1;
+
+    document.getElementById(
+        "saveEventButton"
+    ).textContent = "Add Event";
+
+    document.getElementById(
+        "cancelEventEdit"
+    ).hidden = true;
+
+});
 
 // ============================================
 // HTML ESCAPE
